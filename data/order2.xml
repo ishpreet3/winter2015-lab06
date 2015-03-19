@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
+<!DOCTYPE order SYSTEM 'bonanza.dtd'>
 
-<root>
-    
-</root>
+<order id='8' type='eatin'>
+    <customer>George</customer>
+    <note>whatever</note>
+    <burger>
+        <name>Burger 1</name>
+        <patty type="pork"/>
+        <cheese type="mozzarella"/>
+        <topping type="lettuce"/>
+        <topping type="tomato"/>
+        <sauce type="ketchup"/>
+        <sauce type="mayonaise"/>
+    </burger>
+    <burger>
+        <name>Burger 2</name>
+        <patty type="fish"/>
+        <cheese type="mozzarella"/>
+        <topping type="pickle"/>
+        <topping type="lettuce"/>
+        <sauce type="mayonaise"/>
+    </burger>
+    <burger>
+        <name>Burger 3</name>
+        <patty type="chicken"/>
+        <cheese type="marble"/>
+        <topping type="lettuce"/>
+        <topping type="tomato"/>
+        <sauce type="mayonaise"/>
+    </burger>
+</order>

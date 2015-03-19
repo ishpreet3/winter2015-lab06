@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ORDER; the root element, which describes a single order:
+        - each order will have a designated customer name
+        - an order is for one or more burgers
+        - an order might have special instructions, eg for delivery
+        - each order must have a numeric id
+        - an order can be for eat-in or for takeout
+-->
+<!ELEMENT order (customer,note?,burger+)>
+<!ATTLIST order
+    id CDATA #REQUIRED
+    type (eatin|takeout|delivery) #REQUIRED
+    >
+
+<!-- CUSTOMER; a customer name -->
+<!ELEMENT customer (#PCDATA)>
+<!--
+    BURGER; an order is for one or more burgers & each burger may be customized
+    differently. looking at the menu, each burger has the following
+    characteristics:
+        - a burger has a specific patty
+        - a burger may have one or two cheeses added
+        - a burger may have any number of toppings
+        - a burger may have any number of sauces
+        - a customer might have special instructions for a burger
+        - a burger may be named by the customer
+-->
+<!ELEMENT burger (name?,note?,cheese?,patty,cheese?,topping*,sauce*)>
+<!-- patty for a burger -->
+<!ELEMENT patty EMPTY>
+<!ATTLIST patty
+    type (beef|pork|chicken|fish) #REQUIRED
+    >
+<!-- cheese for a burger -->
+<!ELEMENT cheese EMPTY>
+<!ATTLIST cheese
+    type (blue|cheddar|mozzarella|marble) #REQUIRED
+    >
+<!-- topping for a burger -->
+<!ELEMENT topping EMPTY>
+<!ATTLIST topping
+    type (pickle|lettuce|tomato|mushroom) #REQUIRED
+    >
+<!-- sauce for a burger -->
+<!ELEMENT sauce EMPTY>
+<!ATTLIST sauce
+    type (ketchup|mustard|relish|mayonaise|peanutbutter) #REQUIRED
+    >
+<!ELEMENT name (#PCDATA)>
+
+<!--
+    SPECIAL INSTRUCTIONS; special instructions for an order, or a burger
+-->
+<!ELEMENT note (#PCDATA)>
